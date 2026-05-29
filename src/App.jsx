@@ -3,8 +3,9 @@ import FullBody from './components/FullBody';
 import HandDetail from './components/HandDetail';
 import FootDetail from './components/FootDetail';
 import SkullDetail from './components/SkullDetail';
+import ShoulderDetail from './components/ShoulderDetail';
 import BoneInfoCard from './components/BoneInfoCard';
-import { boneData, handBoneData, footBoneData, skullBoneData } from './data/bones';
+import { boneData, handBoneData, footBoneData, skullBoneData, shoulderBoneData } from './data/bones';
 import './App.css';
 
 const viewDataMap = {
@@ -12,6 +13,7 @@ const viewDataMap = {
   handDetail: handBoneData,
   footDetail: footBoneData,
   skullDetail: skullBoneData,
+  shoulderDetail: shoulderBoneData,
 };
 
 const viewLabels = {
@@ -19,6 +21,7 @@ const viewLabels = {
   handDetail: { title: 'Explore the Hand Bones', text: 'This hand has 27 bones! Click each one to learn what it does.' },
   footDetail: { title: 'Explore the Foot Bones', text: 'This foot has 26 bones! Click each one to learn what it does.' },
   skullDetail: { title: 'Explore the Skull Bones', text: 'The skull has 22 bones! Click each one to learn what it does.' },
+  shoulderDetail: { title: 'Explore the Shoulder', text: 'The shoulder has 3 bones and several key features. Click to learn!' },
 };
 
 export default function App() {
@@ -52,7 +55,7 @@ export default function App() {
   const hoveredInfo = hoveredBone ? currentData[hoveredBone] : null;
   const labels = viewLabels[view];
 
-  const clickableViewMap = { hand: 'handDetail', foot: 'footDetail', skull: 'skullDetail' };
+  const clickableViewMap = { hand: 'handDetail', foot: 'footDetail', skull: 'skullDetail', shoulder: 'shoulderDetail' };
   const exploreTarget = boneInfo?.clickable
     ? () => switchView(clickableViewMap[boneInfo.clickable])
     : null;
@@ -101,6 +104,12 @@ export default function App() {
             >
               Skull Detail
             </button>
+            <button
+              className={`nav-btn ${view === 'shoulderDetail' ? 'nav-btn-active' : ''}`}
+              onClick={() => switchView('shoulderDetail')}
+            >
+              Shoulder
+            </button>
           </div>
 
           {hoveredInfo && !selectedBone && (
@@ -137,6 +146,15 @@ export default function App() {
             )}
             {view === 'skullDetail' && (
               <SkullDetail
+                selected={selectedBone}
+                hovered={hoveredBone}
+                onClick={handleClick}
+                onHover={handleHover}
+                onLeave={handleLeave}
+              />
+            )}
+            {view === 'shoulderDetail' && (
+              <ShoulderDetail
                 selected={selectedBone}
                 hovered={hoveredBone}
                 onClick={handleClick}

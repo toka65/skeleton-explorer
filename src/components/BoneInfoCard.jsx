@@ -1,9 +1,9 @@
-import { regionColors, handTypeColors, footTypeColors } from '../data/bones';
+import { regionColors, handTypeColors, footTypeColors, skullTypeColors, shoulderTypeColors } from '../data/bones';
 
 export default function BoneInfoCard({ bone, onClose, onExplore }) {
   if (!bone) return null;
 
-  const typeColors = { ...handTypeColors, ...footTypeColors };
+  const typeColors = { ...handTypeColors, ...footTypeColors, ...skullTypeColors, ...shoulderTypeColors };
   const accentColor =
     bone.type
       ? typeColors[bone.type] || '#f06292'

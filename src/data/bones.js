@@ -70,29 +70,37 @@ export const boneData = {
     name: 'Clavicle (Collarbone)',
     region: 'shoulder',
     count: 2,
-    description: 'A long, S-shaped bone that connects your shoulder to your breastbone. You have one on each side.',
+    description: 'A long, S-shaped bone that connects your shoulder to your breastbone. Click to explore the shoulder in detail!',
     funFact: 'The clavicle is one of the most commonly broken bones, especially in kids who fall while playing sports!',
+    clickable: 'shoulder',
+    exploreLabel: 'Explore Shoulder',
   },
   right_clavicle: {
     name: 'Clavicle (Collarbone)',
     region: 'shoulder',
     count: 2,
-    description: 'A long, S-shaped bone that connects your shoulder to your breastbone. You have one on each side.',
+    description: 'A long, S-shaped bone that connects your shoulder to your breastbone. Click to explore the shoulder in detail!',
     funFact: 'The clavicle is the only bone in your body that lies completely horizontal!',
+    clickable: 'shoulder',
+    exploreLabel: 'Explore Shoulder',
   },
   left_scapula: {
     name: 'Scapula (Shoulder Blade)',
     region: 'shoulder',
     count: 2,
-    description: 'A flat, triangular bone on your upper back. It connects your arm to your body and has 17 muscles attached to it!',
+    description: 'A flat, triangular bone on your upper back. It connects your arm to your body and has 17 muscles attached to it! Click to explore the shoulder in detail.',
     funFact: 'Your shoulder blade can move in 6 different directions! That\'s why you can move your arm in almost any direction.',
+    clickable: 'shoulder',
+    exploreLabel: 'Explore Shoulder',
   },
   right_scapula: {
     name: 'Scapula (Shoulder Blade)',
     region: 'shoulder',
     count: 2,
-    description: 'A flat, triangular bone on your upper back. It connects your arm to your body and has 17 muscles attached to it!',
+    description: 'A flat, triangular bone on your upper back. It connects your arm to your body and has 17 muscles attached to it! Click to explore the shoulder in detail.',
     funFact: 'Some people can make their shoulder blades stick out like wings! This is called "scapular winging."',
+    clickable: 'shoulder',
+    exploreLabel: 'Explore Shoulder',
   },
   left_humerus: {
     name: 'Humerus (Upper Arm)',
@@ -611,6 +619,63 @@ export const footBoneData = {
     finger: 'Little Toe',
     description: 'The tip bone of your little toe — one of the smallest bones in your entire body!',
     funFact: 'This tiny bone is so small that some people are born with it already fused to the middle phalanx!',
+  },
+};
+
+export const shoulderTypeColors = {
+  shoulder_bone: '#ce93d8',
+  shoulder_feature: '#ab47bc',
+  shoulder_connected: '#7e57c2',
+};
+
+export const shoulderBoneData = {
+  shoulder_clavicle: {
+    name: 'Clavicle (Collarbone)',
+    type: 'shoulder_bone',
+    description: 'A long, S-shaped bone that connects your shoulder to your breastbone. It acts like a strut to keep your arm out to the side.',
+    funFact: 'The clavicle is the first bone in your body to start hardening (ossifying) when you\'re still in the womb — at just 5-6 weeks! But it\'s one of the last to finish growing, not fully done until you\'re about 25.',
+  },
+  shoulder_scapula_body: {
+    name: 'Scapula Body (Shoulder Blade)',
+    type: 'shoulder_bone',
+    description: 'A large, flat, triangular bone on your upper back. It\'s the main part of the shoulder blade and has 17 muscles attached to it!',
+    funFact: 'The scapula "floats" on your back — it\'s not directly connected to your ribcage by any joint! It\'s held in place entirely by muscles, which is why it can move in so many directions.',
+  },
+  scapular_spine: {
+    name: 'Spine of Scapula',
+    type: 'shoulder_feature',
+    description: 'A bony ridge that runs across the back of the scapula. It divides the shoulder blade into two areas and you can feel it through your skin.',
+    funFact: 'Try this: reach over your opposite shoulder and feel along the top of your shoulder blade. That bony ridge you feel is the spine of the scapula!',
+  },
+  acromion: {
+    name: 'Acromion',
+    type: 'shoulder_feature',
+    description: 'The bony point at the very top of your shoulder. It\'s the outer end of the scapular spine and connects to the clavicle.',
+    funFact: 'The acromion forms a roof over the shoulder joint, protecting it from above. When you feel the bony tip of your shoulder, that\'s the acromion!',
+  },
+  coracoid_process: {
+    name: 'Coracoid Process',
+    type: 'shoulder_feature',
+    description: 'A hook-shaped bony projection that sticks forward from the scapula. Several important muscles and ligaments attach to it.',
+    funFact: 'The name "coracoid" comes from the Greek word for "crow" because early anatomists thought it looked like a crow\'s beak!',
+  },
+  glenoid_cavity: {
+    name: 'Glenoid Cavity (Shoulder Socket)',
+    type: 'shoulder_feature',
+    description: 'The shallow, dish-shaped socket on the scapula where the head of the humerus sits. It forms the shoulder joint.',
+    funFact: 'The glenoid cavity is very shallow compared to the hip socket — that\'s why your shoulder can move in almost any direction, but it\'s also why shoulders dislocate more easily than hips!',
+  },
+  humerus_head: {
+    name: 'Head of Humerus',
+    type: 'shoulder_connected',
+    description: 'The smooth, rounded top of your upper arm bone. It\'s shaped like a ball and fits into the glenoid cavity to form the shoulder joint.',
+    funFact: 'The head of the humerus is about the size of a golf ball! Together with the shallow glenoid socket, it forms a "ball-and-socket joint" — the most mobile joint in your entire body.',
+  },
+  manubrium: {
+    name: 'Manubrium (Top of Sternum)',
+    type: 'shoulder_connected',
+    description: 'The upper part of your breastbone where the clavicle connects. You can feel the notch at the top between your two collarbones.',
+    funFact: 'The notch you can feel at the top of your sternum between your collarbones is called the "jugular notch" or "suprasternal notch." Doctors use it as a landmark!',
   },
 };
 
