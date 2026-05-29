@@ -66,15 +66,19 @@ export const boneData = {
     name: 'Sternum (Breastbone)',
     region: 'ribcage',
     count: 1,
-    description: 'The flat bone in the center of your chest that connects your ribs. It protects your heart and lungs.',
+    description: 'The flat bone in the center of your chest that connects your ribs. It protects your heart and lungs. Click to explore the ribcage!',
     funFact: 'The sternum is made of 3 parts: the manubrium (top), the body (middle), and the xiphoid process (a tiny point at the bottom).',
+    clickable: 'ribcage',
+    exploreLabel: 'Explore Ribcage',
   },
   ribs: {
     name: 'Ribs',
     region: 'ribcage',
     count: 24,
-    description: 'You have 12 pairs (24 total) of curved bones that form a protective cage around your heart and lungs.',
+    description: 'You have 12 pairs (24 total) of curved bones that form a protective cage around your heart and lungs. Click to explore them all!',
     funFact: 'Your bottom 2 pairs are called "floating ribs" because they don\'t connect to your breastbone at all! They just float at the back.',
+    clickable: 'ribcage',
+    exploreLabel: 'Explore Ribcage',
   },
   left_clavicle: {
     name: 'Clavicle (Collarbone)',
@@ -686,6 +690,113 @@ export const shoulderBoneData = {
     type: 'shoulder_connected',
     description: 'The upper part of your breastbone where the clavicle connects. You can feel the notch at the top between your two collarbones.',
     funFact: 'The notch you can feel at the top of your sternum between your collarbones is called the "jugular notch" or "suprasternal notch." Doctors use it as a landmark!',
+  },
+};
+
+export const ribcageTypeColors = {
+  sternum: '#ffb74d',
+  true_rib: '#81c784',
+  false_rib: '#4dd0e1',
+  floating_rib: '#ce93d8',
+  cartilage: '#90a4ae',
+};
+
+export const ribcageBoneData = {
+  manubrium_rib: {
+    name: 'Manubrium',
+    type: 'sternum',
+    description: 'The top part of the sternum — a broad, shield-shaped bone. Your collarbones and first ribs attach here.',
+    funFact: 'The manubrium means "handle" in Latin because early anatomists thought the sternum looked like a Roman sword, and this was the handle!',
+  },
+  sternal_body: {
+    name: 'Body of Sternum',
+    type: 'sternum',
+    description: 'The long middle part of the sternum. Ribs 2–7 attach here through costal cartilage.',
+    funFact: 'The body of the sternum is actually made of 4 separate bones (sternebrae) that fuse together by the time you\'re about 25 years old!',
+  },
+  xiphoid_process: {
+    name: 'Xiphoid Process',
+    type: 'sternum',
+    description: 'A small, pointed piece of cartilage/bone at the very bottom of the sternum. It starts as cartilage and slowly turns to bone.',
+    funFact: '"Xiphoid" means "sword-shaped" in Greek. This tiny bone doesn\'t fully harden until you\'re about 40 years old!',
+  },
+  rib_1: {
+    name: 'Rib 1 (True Rib)',
+    type: 'true_rib',
+    description: 'The shortest, most curved, and widest rib. It sits just below the clavicle and is hard to feel because it\'s hidden behind the collarbone.',
+    funFact: 'Rib 1 is so well-protected that it\'s rarely broken. If it IS broken, it means a very strong force hit you — doctors check for other injuries too!',
+  },
+  rib_2: {
+    name: 'Rib 2 (True Rib)',
+    type: 'true_rib',
+    description: 'The second rib is thinner than the first and lies just below it. It connects to the junction between the manubrium and the sternal body.',
+    funFact: 'Rib 2 attaches at the "sternal angle" (Angle of Louis) — a bump you can feel on your chest where the manubrium meets the body of the sternum. Doctors use it as a landmark!',
+  },
+  rib_3: {
+    name: 'Rib 3 (True Rib)',
+    type: 'true_rib',
+    description: 'A typical true rib that connects directly to the sternum through its own strip of costal cartilage.',
+    funFact: 'Ribs 3–9 are called "typical ribs" because they all look similar. They have a head, neck, shaft, and their own cartilage connection to the sternum.',
+  },
+  rib_4: {
+    name: 'Rib 4 (True Rib)',
+    type: 'true_rib',
+    description: 'The fourth true rib, roughly at the level of your nipples. It connects directly to the sternum.',
+    funFact: 'Your heart sits behind ribs 3–5 on the left side. These ribs are its bony bodyguards!',
+  },
+  rib_5: {
+    name: 'Rib 5 (True Rib)',
+    type: 'true_rib',
+    description: 'The fifth true rib, with its own costal cartilage connecting it directly to the sternum.',
+    funFact: 'Each rib gets progressively longer from rib 1 to rib 7, then shorter again from rib 8 to rib 12!',
+  },
+  rib_6: {
+    name: 'Rib 6 (True Rib)',
+    type: 'true_rib',
+    description: 'The sixth true rib, part of the protective cage around your lungs and lower heart.',
+    funFact: 'Your ribs move every time you breathe! They swing outward and upward like bucket handles to expand your chest.',
+  },
+  rib_7: {
+    name: 'Rib 7 (True Rib)',
+    type: 'true_rib',
+    description: 'The longest rib and the last "true rib" — the last one that connects directly to the sternum with its own cartilage.',
+    funFact: 'Rib 7 is the longest rib in your body! After this, the ribs get shorter again.',
+  },
+  rib_8: {
+    name: 'Rib 8 (False Rib)',
+    type: 'false_rib',
+    description: 'The first "false rib." Instead of having its own cartilage to the sternum, its cartilage attaches to rib 7\'s cartilage.',
+    funFact: 'False ribs are called "false" not because they\'re fake, but because they don\'t have their own direct cartilage connection to the sternum!',
+  },
+  rib_9: {
+    name: 'Rib 9 (False Rib)',
+    type: 'false_rib',
+    description: 'The second false rib. Its cartilage connects to the cartilage of the rib above it, forming a chain.',
+    funFact: 'Ribs 8-10 share their cartilage connections, forming the "costal margin" — the bony arch you can feel at the bottom of your ribcage.',
+  },
+  rib_10: {
+    name: 'Rib 10 (False Rib)',
+    type: 'false_rib',
+    description: 'The third and last false rib. Its cartilage connects to rib 9\'s cartilage above, forming the costal arch.',
+    funFact: 'The costal margin formed by these ribs protects your liver (right side) and stomach (left side).',
+  },
+  rib_11: {
+    name: 'Rib 11 (Floating Rib)',
+    type: 'floating_rib',
+    description: 'A short "floating rib" that only attaches to the spine at the back and has no connection to the sternum at all!',
+    funFact: 'Floating ribs are sometimes called "vertebral ribs" because they only attach to the vertebrae. Their free front ends are embedded in muscle.',
+  },
+  rib_12: {
+    name: 'Rib 12 (Floating Rib)',
+    type: 'floating_rib',
+    description: 'The shortest and last rib. Like rib 11, it "floats" — it only connects to the spine and has no front attachment.',
+    funFact: 'About 1 in 200 people have an extra 13th rib, called a "cervical rib." It grows from the neck vertebrae and is usually harmless!',
+  },
+  costal_cartilage: {
+    name: 'Costal Cartilage',
+    type: 'cartilage',
+    description: 'Flexible strips of hyaline cartilage that connect the ribs to the sternum. They give the ribcage some flexibility so you can breathe.',
+    funFact: 'Costal cartilage is what allows your chest to expand when you breathe in deeply. Without it, your ribcage would be too rigid to move!',
   },
 };
 

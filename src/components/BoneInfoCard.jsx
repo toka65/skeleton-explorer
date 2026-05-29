@@ -1,13 +1,40 @@
-import { regionColors, handTypeColors, footTypeColors, skullTypeColors, shoulderTypeColors, spineTypeColors } from '../data/bones';
+import { regionColors, handTypeColors, footTypeColors, skullTypeColors, shoulderTypeColors, spineTypeColors, ribcageTypeColors } from '../data/bones';
+
+const typeDisplayNames = {
+  carpal: 'Carpal (Wrist)',
+  metacarpal: 'Metacarpal (Palm)',
+  phalanx: 'Phalanx (Finger)',
+  tarsal: 'Tarsal (Ankle)',
+  metatarsal: 'Metatarsal (Midfoot)',
+  cranial: 'Cranial Bone',
+  facial: 'Facial Bone',
+  shoulder_bone: 'Shoulder Bone',
+  shoulder_feature: 'Shoulder Feature',
+  shoulder_connected: 'Connected Bone',
+  cervical: 'Cervical',
+  thoracic: 'Thoracic',
+  lumbar: 'Lumbar',
+  sacral: 'Sacral',
+  feature: 'Feature',
+  sternum: 'Sternum',
+  true_rib: 'True Rib',
+  false_rib: 'False Rib',
+  floating_rib: 'Floating Rib',
+  cartilage: 'Cartilage',
+};
 
 export default function BoneInfoCard({ bone, onClose, onExplore }) {
   if (!bone) return null;
 
-  const typeColors = { ...handTypeColors, ...footTypeColors, ...skullTypeColors, ...shoulderTypeColors, ...spineTypeColors };
+  const typeColors = { ...handTypeColors, ...footTypeColors, ...skullTypeColors, ...shoulderTypeColors, ...spineTypeColors, ...ribcageTypeColors };
   const accentColor =
     bone.type
       ? typeColors[bone.type] || '#f06292'
       : regionColors[bone.region] || '#64b5f6';
+
+  const displayType = bone.type
+    ? (typeDisplayNames[bone.type] || bone.type)
+    : bone.region;
 
   return (
     <div className="bone-info-card" style={{ borderTopColor: accentColor }}>
@@ -15,7 +42,7 @@ export default function BoneInfoCard({ bone, onClose, onExplore }) {
         &times;
       </button>
       <div className="bone-info-badge" style={{ backgroundColor: accentColor }}>
-        {bone.type || bone.region}
+        {displayType}
       </div>
       <h2 className="bone-info-name">{bone.name}</h2>
       {bone.count && (
