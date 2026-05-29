@@ -4,8 +4,9 @@ import HandDetail from './components/HandDetail';
 import FootDetail from './components/FootDetail';
 import SkullDetail from './components/SkullDetail';
 import ShoulderDetail from './components/ShoulderDetail';
+import SpineDetail from './components/SpineDetail';
 import BoneInfoCard from './components/BoneInfoCard';
-import { boneData, handBoneData, footBoneData, skullBoneData, shoulderBoneData } from './data/bones';
+import { boneData, handBoneData, footBoneData, skullBoneData, shoulderBoneData, spineBoneData } from './data/bones';
 import './App.css';
 
 const viewDataMap = {
@@ -14,6 +15,7 @@ const viewDataMap = {
   footDetail: footBoneData,
   skullDetail: skullBoneData,
   shoulderDetail: shoulderBoneData,
+  spineDetail: spineBoneData,
 };
 
 const viewLabels = {
@@ -22,6 +24,7 @@ const viewLabels = {
   footDetail: { title: 'Explore the Foot Bones', text: 'This foot has 26 bones! Click each one to learn what it does.' },
   skullDetail: { title: 'Explore the Skull Bones', text: 'The skull has 22 bones! Click each one to learn what it does.' },
   shoulderDetail: { title: 'Explore the Shoulder', text: 'The shoulder has 3 bones and several key features. Click to learn!' },
+  spineDetail: { title: 'Explore the Spine', text: 'The spine has 33 vertebrae in 5 regions. Click to learn about each!' },
 };
 
 export default function App() {
@@ -55,7 +58,7 @@ export default function App() {
   const hoveredInfo = hoveredBone ? currentData[hoveredBone] : null;
   const labels = viewLabels[view];
 
-  const clickableViewMap = { hand: 'handDetail', foot: 'footDetail', skull: 'skullDetail', shoulder: 'shoulderDetail' };
+  const clickableViewMap = { hand: 'handDetail', foot: 'footDetail', skull: 'skullDetail', shoulder: 'shoulderDetail', spine: 'spineDetail' };
   const exploreTarget = boneInfo?.clickable
     ? () => switchView(clickableViewMap[boneInfo.clickable])
     : null;
@@ -110,6 +113,12 @@ export default function App() {
             >
               Shoulder
             </button>
+            <button
+              className={`nav-btn ${view === 'spineDetail' ? 'nav-btn-active' : ''}`}
+              onClick={() => switchView('spineDetail')}
+            >
+              Spine
+            </button>
           </div>
 
           {hoveredInfo && !selectedBone && (
@@ -155,6 +164,15 @@ export default function App() {
             )}
             {view === 'shoulderDetail' && (
               <ShoulderDetail
+                selected={selectedBone}
+                hovered={hoveredBone}
+                onClick={handleClick}
+                onHover={handleHover}
+                onLeave={handleLeave}
+              />
+            )}
+            {view === 'spineDetail' && (
+              <SpineDetail
                 selected={selectedBone}
                 hovered={hoveredBone}
                 onClick={handleClick}
